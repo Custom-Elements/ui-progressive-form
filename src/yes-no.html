@@ -1,0 +1,9 @@
+<polymer-element name="yes-no" attributes="questionText value">
+<template>
+  <link rel="stylesheet" type="text/css" href="./yes-no.less">
+  <h2>{{questionText}}</h2>
+  <div value="true" on-click="{{choiceClicked}}">Yes</div>
+  <div value="false" on-click="{{choiceClicked}}">No</div>
+</template>
+<script src="./yes-no.litcoffee"></script>
+</polymer-element>

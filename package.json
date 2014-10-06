@@ -1,0 +1,14 @@
+{
+  "name": "progressive-form",
+  "version": "0.0.0",
+  "dependencies": {
+    "polymer-build": "",
+    "polymer": "git://github.com/custom-elements/polymer#master",
+    "ui-styles": "git://github.com/custom-elements/ui-styles#master",
+    "ui-fonts": "git://github.com/custom-elements/ui-fonts#master"
+  },
+  "license": "ISC",
+  "scripts": {
+    "test": "polymer-build watch . src/ build/"
+  }
+}
