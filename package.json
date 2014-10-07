@@ -1,5 +1,5 @@
 {
-  "name": "progressive-form",
+  "name": "ui-progressive-form",
   "version": "0.0.0",
   "dependencies": {
     "polymer-build": "",

@@ -2,7 +2,7 @@
 *TODO* tell me all about your element.
 
 
-    Polymer 'progressive-form',
+    Polymer 'ui-progressive-form',
 
 ##Events
 *TODO* describe the custom event `name` and `detail` that are fired.
