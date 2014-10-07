@@ -4,17 +4,17 @@
 
 
 
-  <div id="question-container">
+  <div id="question-container" vertical layout>
 
-    <section id="question-slideshow">
-      <div id="question-toggle-0" class="question-item">
+    <section id="question-slideshow" flex three>
+      <div id="question-toggle-0" class="question-item {{questionSlide0}}">
       </div>
 
-      <div id="question-toggle-1" class="question-item">
+      <div id="question-toggle-1" class="question-item {{questionSlide1}}">
       </div>
     </section>
 
-    <section id="footer">
+    <section id="footer" flex>
       <a on-click="{{clickBack}}" class="{{ {hidden: hideBackButton} | tokenList}}">Back</a>
       <a on-click="{{clickNext}}">Next</a>
     </section>

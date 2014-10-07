@@ -22,12 +22,17 @@
         @questionIndex += 1
         if @questionIndex < @questions.length
 
-          nextElm = @.$["question-toggle-#{@questionIndex % 2}"]
-          lastElm = @.$["question-toggle-#{(@questionIndex + 1) % 2}"]
+          nextToggle = @questionIndex % 2
+          lastToggle = (@questionIndex + 1) % 2
+
+          nextElm = @.$["question-toggle-#{nextToggle}"]
+          lastElm = @.$["question-toggle-#{lastToggle}"]
 
           nextElm.innerHTML = ''
           nextElm.appendChild @questions[@questionIndex]
-          nextElm.classList.add('move-left')
+
+          @["questionSlide#{lastToggle}"] = 'exit-left'
+          @["questionSlide#{nextToggle}"] = 'enter-right'
 
         @.fire 'question-completed', lastQuestion
 

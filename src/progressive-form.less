@@ -3,11 +3,8 @@
 }
 
 #question-container {
-  position: relative;
   width: 700px;
   height: 200px;
-
-  padding-bottom: 4px;
 
   background-color: lightgrey;
   border-radius: 3px;
@@ -15,7 +12,8 @@
 }
 
 #question-slideshow {
-  overflow: none;
+  overflow: hidden;
+  position: relative;
 }
 
 #footer {
@@ -23,15 +21,67 @@
 }
 
 .question-item {
-  transition: -webkit-transform 1s;
+  -webkit-animation-fill-mode: forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.move-left {
-  -webkit-transform:translateX(-100%);
+@-webkit-keyframes exit-stage-left {
+  0% {
+    -webkit-transform:translateX(0);
+  }
+
+  100% {
+    -webkit-transform:translateX(-100%);
+  }
 }
 
-.move-right {
-  -webkit-transform:translateX(100%);
+@-webkit-keyframes enter-stage-left {
+  0% {
+    -webkit-transform:translateX(-100%);
+  }
+
+  100% {
+    -webkit-transform:translateX(0);
+  }
+}
+
+@-webkit-keyframes exit-stage-right {
+  0% {
+    -webkit-transform:translateX(0);
+  }
+
+  100% {
+    -webkit-transform:translateX(100%);
+  }
+}
+
+@-webkit-keyframes enter-stage-right {
+  0% {
+    -webkit-transform:translateX(100%);
+  }
+
+  100% {
+    -webkit-transform:translateX(0);
+  }
+}
+
+.exit-left {
+  -webkit-animation: exit-stage-left 0.6s ease-in forwards;
+}
+
+.enter-left {
+  -webkit-animation: enter-stage-left 0.6s ease-in forwards;
+}
+
+.exit-right {
+  -webkit-animation: exit-stage-right 0.6s ease-in forwards;
+}
+
+.enter-right {
+  -webkit-animation: enter-stage-right 0.6s ease-in forwards;
 }
 
 .hidden {
