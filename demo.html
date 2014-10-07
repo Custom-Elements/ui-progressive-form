@@ -12,22 +12,28 @@
       html, body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
         height:100%;
+        width:100%;
       }
       #holder {
-        width: 600px;
-        margin-left: 0 auto;
-        margin-right: 0 auto;
-        background-color: lightgrey;
-        border-radius: 3px;
-        height: 60%;
-        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
       }
     </style>
   </head>
   <body unresolved>
     <div id="holder">
 
-      <yes-no>Have you ever ridden a moped?</yes-no>
+      <progressive-form>
+
+        <ol>
+          <li><yes-no>Have you ever ridden a moped?</yes-no></li>
+          <li><yes-no>Do you believe in life after love?</yes-no></li>
+          <li><yes-no>Has there ever been a time where you thought, "Jeezus, why don't they reboot Alf?"</yes-no></li>
+          <li><yes-no>Is your favorite movie Die Hard?</yes-no></li>
+        </ol>
+
+      </progressive-form>
 
     </div>
     <script>

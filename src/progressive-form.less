@@ -1,3 +1,39 @@
 :host {
   display: block;
 }
+
+#question-container {
+  position: relative;
+  width: 700px;
+  height: 200px;
+
+  padding-bottom: 4px;
+
+  background-color: lightgrey;
+  border-radius: 3px;
+  text-align: center;
+}
+
+#question-slideshow {
+  overflow: none;
+}
+
+#footer {
+
+}
+
+.question-item {
+  transition: -webkit-transform 1s;
+}
+
+.move-left {
+  -webkit-transform:translateX(-100%);
+}
+
+.move-right {
+  -webkit-transform:translateX(100%);
+}
+
+.hidden {
+  display: none;
+}

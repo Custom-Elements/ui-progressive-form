@@ -1,7 +1,26 @@
 <polymer-element name="progressive-form" attributes="">
 <template>
   <link rel="stylesheet" type="text/css" href="./progressive-form.less">
-  <content></content>
+
+
+
+  <div id="question-container">
+
+    <section id="question-slideshow">
+      <div id="question-toggle-0" class="question-item">
+      </div>
+
+      <div id="question-toggle-1" class="question-item">
+      </div>
+    </section>
+
+    <section id="footer">
+      <a on-click="{{clickBack}}" class="{{ {hidden: hideBackButton} | tokenList}}">Back</a>
+      <a on-click="{{clickNext}}">Next</a>
+    </section>
+
+  </div>
+
 </template>
 <script src="./progressive-form.litcoffee"></script>
 </polymer-element>

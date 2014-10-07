@@ -14,7 +14,8 @@
 ##Event Handlers
 
       choiceClicked: (event) ->
-        @.answer = 'true' == event.target.getAttribute('value')
+        elm = event.target
+        @.answer = 'true' == elm.getAttribute('value')
         @.fire 'question-answered',  @.answer
 
 ##Polymer Lifecycle
