@@ -64,8 +64,9 @@
     <script>
       document.addEventListener('polymer-ready', function() {
         var yesNoDemo = document.getElementById('yes-no-demo');
-        yesNoDemo.addEventListener("question-answered", function(event){
+        yesNoDemo.addEventListener("clicked", function(event){
           var yesNoAnswer = document.getElementById('yes-no-answer');
+          console.log(event);
           if(event.target.answer)
             yesNoAnswer.innerText = "Yes";
           else

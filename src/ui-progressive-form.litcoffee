@@ -51,8 +51,6 @@
         for item in listItems
           @questions.push item.children[0]
 
-        console.log @questions
-
         @.$['question-toggle-0'].appendChild @questions[@questionIndex]
 
       detached: ->

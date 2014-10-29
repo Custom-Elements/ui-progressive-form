@@ -5,9 +5,16 @@
     Polymer 'yes-no',
 
 ##Events
-*TODO* describe the custom event `name` and `detail` that are fired.
+
+####clicked
+Fired when 'Yes' or 'No' are clicked.
+
 
 ##Attributes and Change Handlers
+
+      questionText: null
+
+The text of the question.
 
 ##Methods
 
@@ -15,8 +22,8 @@
 
       choiceClicked: (event) ->
         elm = event.target
-        @.answer = 'true' == elm.getAttribute('value')
-        @.fire 'question-answered',  @.answer
+        @answer = 'true' == elm.getAttribute('value')
+        @fire 'clicked',  @answer
 
 ##Polymer Lifecycle
 
@@ -24,7 +31,7 @@
 
       ready: ->
         if @.innerHTML
-          @.questionText = @.innerHTML
+          @questionText = @.innerHTML
 
       attached: ->
 
