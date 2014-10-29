@@ -12,35 +12,65 @@
         font-family: "Helvetica Neue", "Helvetica", Arial;
         height:100%;
         width:100%;
+        background-color: #3F3F40;
       }
+
+      section {
+        border-radius: 4px;
+        background-color: #FDFDFF;
+        padding: 2em;
+        margin-bottom: 2em;
+
+      }
+
+      section h3 {
+        border-bottom: 1px solid #BDBEBF;
+      }
+
       #holder {
         margin-left: auto;
         margin-right: auto;
-        width: 700px;
+        width: 960px;
       }
     </style>
   </head>
   <body unresolved>
     <div id="holder">
 
-      <ui-progressive-form>
+      <section>
+        <h2>Inputs</h2>
 
-        <ol>
-          <li><yes-no>Have you ever ridden a moped?</yes-no></li>
-          <li><yes-no>Do you believe in life after love?</yes-no></li>
-          <li><yes-no>Has there ever been a time where you thought, "Jeezus, why don't they reboot Alf?"</yes-no></li>
-          <li><yes-no>Is your favorite movie Die Hard?</yes-no></li>
-        </ol>
+        <h3>Yes/No Question</h3>
+        <yes-no id="yes-no-demo">Do you or anyone in your family know who let the dogs out?</yes-no>
+        <div>Answered: <span id="yes-no-answer"></span></div>
+      </section>
 
-      </ui-progressive-form>
+      <section>
+        <h2>Progressive Form</h2>
+
+        <ui-progressive-form>
+
+          <ol>
+            <li><yes-no>Have you ever ridden a moped?</yes-no></li>
+            <li><yes-no>Do you believe in life after love?</yes-no></li>
+            <li><yes-no>Has there ever been a time where you thought, "Jeezus, why don't they reboot Alf?"</yes-no></li>
+            <li><yes-no>Is your favorite movie Die Hard?</yes-no></li>
+          </ol>
+
+        </ui-progressive-form>
+      </section>
 
     </div>
     <script>
       document.addEventListener('polymer-ready', function() {
-        var yesNo = document.querySelector('yes-no');
-        yesNo.addEventListener('question-answered', function(event){
-          console.log(event.target.answer);
-        })
+        var yesNoDemo = document.getElementById('yes-no-demo');
+        yesNoDemo.addEventListener("question-answered", function(event){
+          var yesNoAnswer = document.getElementById('yes-no-answer');
+          if(event.target.answer)
+            yesNoAnswer.innerText = "Yes";
+          else
+            yesNoAnswer.innerText = "No";
+        });
       })
     </script>
   </body>

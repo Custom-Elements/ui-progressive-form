@@ -23,7 +23,8 @@
       created: ->
 
       ready: ->
-        @.questionText = @.innerHTML
+        if @.innerHTML
+          @.questionText = @.innerHTML
 
       attached: ->
 

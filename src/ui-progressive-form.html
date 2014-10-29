@@ -17,7 +17,8 @@
 
     <section id="footer" flex>
       <a on-click="{{clickBack}}" class="{{ {hidden: hideBackButton} | tokenList}}">Back</a>
-      <a on-click="{{clickNext}}">Next</a>
+      <a on-click="{{clickNext}}" class="{{ {hidden: hideNextButton} | tokenList}}">Next</a>
+      <a on-click="{{clickComplete}}" class="{{ {hidden: hideCompleteButton} | tokenList}}">Complete</a>
     </section>
 
   </div>
