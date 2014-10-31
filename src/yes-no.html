@@ -1,12 +1,24 @@
-<polymer-element name="yes-no" attributes="questionText answer">
+<polymer-element name="yes-no" attributes="answer">
 <template>
   <link rel="stylesheet" type="text/css" href="./yes-no.less">
 
-  <div class="question">{{questionText}}</div>
+  <section class="question">
+    <content select="question"></content>
+  </section>
 
-  <section class="buttons">
-    <div value="true" class="button {{ {selected: answer === true} | tokenList}}" on-click="{{choiceClicked}}">Yes</div>
-    <div value="false" class="button {{ {selected: answer === false} | tokenList}}" on-click="{{choiceClicked}}">No</div>
+  <section class="detail">
+    <content select="detail"></content>
+  </section>
+
+  <section class="buttons" horizontal center-justified layout center>
+    <div value="true" on-click="{{choiceClicked}}" class="button {{ {selected: answer } | tokenList}}" horizontal layout center>
+      <div class="checkbox"></div>
+      <span>Yes</span>
+    </div>
+    <div value="false" on-click="{{choiceClicked}}" class="button {{ {selected: answer } | tokenList}}" horizontal layout center>
+      <div class="checkbox"></div>
+      <span>No</span>
+    </div>
   </section>
 
 </template>

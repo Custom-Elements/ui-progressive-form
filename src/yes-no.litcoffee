@@ -30,8 +30,6 @@ The text of the question.
       created: ->
 
       ready: ->
-        if @.innerHTML
-          @questionText = @.innerHTML
 
       attached: ->
 

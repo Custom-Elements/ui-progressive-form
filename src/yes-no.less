@@ -1,23 +1,52 @@
 :host {
   display: block;
-  font-size: 1.5em;
-  text-align: center;
-  color: #3F3F40;
+  line-height: 1.8;
 }
 
 .question {
-  margin-bottom: 1em;
+  font-size: 20px;
+  background-color: #B3B3B3;
+  padding: 1em;
+  position: relative;
+  margin-bottom: 10px;
+
+  &:after{
+    background-color: #B3B3B3;
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    right: 50px;
+    bottom: -30px;
+    content: "";
+  }
+}
+
+.detail {
+  padding: 1em;
+}
+
+.buttons {
+  background-color: #EBEBEB;
+  padding: 1em;
 }
 
 .button {
   display: inline-block;
-  border-radius: 5px;
-  padding: 0.2em;
-  box-shadow: 2px 2px 4px #3F3F40;
-  width:3em;
-  margin-right:2em;
+  margin-right: 20px;
+
+  span {
+    font-size: 20px;
+  }
 }
 
-.selected {
-  box-shadow: inset 2px 2px 4px #3F3F40;
+.checkbox {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background-color: #FFF;
+  margin-right: 10px;
+
+  &.selected{
+    background-color: #B3B3B3;
+  }
 }
