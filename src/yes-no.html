@@ -11,11 +11,11 @@
   </section>
 
   <section class="buttons" horizontal center-justified layout center>
-    <div value="true" on-click="{{choiceClicked}}" class="checkbox-container" horizontal layout center>
+    <div value="true" on-click="{{choiceClicked}}" class="checkbox-container" horizontal center-justified layout center>
       <div class="checkbox {{ {selected: answer === true } | tokenList}}"></div>
       <span>Yes</span>
     </div>
-    <div on-click="{{choiceClicked}}" class="checkbox-container" horizontal layout center>
+    <div on-click="{{choiceClicked}}" class="checkbox-container" horizontal center-justified layout center>
       <div class="checkbox {{ {selected: answer === false } | tokenList}}"></div>
       <span>No</span>
     </div>

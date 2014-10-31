@@ -1,6 +1,8 @@
 :host {
   display: block;
   line-height: 1.8;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
 
   a {
     color: #EF5550;
@@ -10,7 +12,7 @@
 }
 
 .question {
-  font-size: 20px;
+  font-size: 20pt;
   background-color: #B3B3B3;
   padding: 1em;
   position: relative;
@@ -44,8 +46,8 @@
   position: relative;
 
   span {
-    font-size: 20px;
-    padding-left: 45px;
+    font-size: 20pt;
+    padding-left: 15px;
   }
 }
 
@@ -53,12 +55,13 @@
   width: 35px;
   height: 35px;
   background-color: #FFF;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 1;
   -webkit-perspective: 1000;
   perspective: 1000;
+  cursor: pointer;
 
   &:after {
     transition: 0.3s;
