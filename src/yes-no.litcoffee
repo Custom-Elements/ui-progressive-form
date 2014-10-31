@@ -21,7 +21,7 @@ The text of the question.
 ##Event Handlers
 
       choiceClicked: (event) ->
-        elm = event.target
+        elm = event.currentTarget
         @answer = 'true' == elm.getAttribute('value')
         @fire 'clicked',  @answer
 

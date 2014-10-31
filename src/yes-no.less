@@ -1,6 +1,12 @@
 :host {
   display: block;
   line-height: 1.8;
+
+  a {
+    color: #EF5550;
+
+    &:link{color: #EF5550;}
+  }
 }
 
 .question {
@@ -11,12 +17,14 @@
   margin-bottom: 10px;
 
   &:after{
-    background-color: #B3B3B3;
-    width: 50px;
-    height: 30px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #B3B3B3;
     position: absolute;
     right: 50px;
-    bottom: -30px;
+    bottom: -20px;
     content: "";
   }
 }
@@ -30,23 +38,55 @@
   padding: 1em;
 }
 
-.button {
+.checkbox-container {
   display: inline-block;
   margin-right: 20px;
+  position: relative;
 
   span {
     font-size: 20px;
+    padding-left: 45px;
   }
 }
 
 .checkbox {
   width: 35px;
   height: 35px;
-  display: inline-block;
   background-color: #FFF;
-  margin-right: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-perspective: 1000;
+  perspective: 1000;
 
-  &.selected{
+  &:after {
+    transition: 0.3s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+
+    -webkit-transition: 0.3s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+
     background-color: #B3B3B3;
+    display: block;
+    width: 35px;
+    height: 35px;
+    content: "X";
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
+
+  &.selected {
+    &:after {
+      -webkit-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+  }
+
 }
