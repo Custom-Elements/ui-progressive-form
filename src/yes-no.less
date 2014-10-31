@@ -3,17 +3,23 @@
   line-height: 1.8;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
+}
 
-  a {
-    color: #EF5550;
+@glg-red: #EF5550;
+@dark-bg: #B3B3B3;
+@light-bg: #EBEBEB;
 
-    &:link{color: #EF5550;}
-  }
+content::content a {
+  text-decoration: none;
+  &:link{color: @glg-red;}
+  &:visited{color: @glg-red;}
+  &:hover{color: @glg-red; text-decoration: underline;}
+  &:active{color: @glg-red;}
 }
 
 .question {
   font-size: 20pt;
-  background-color: #B3B3B3;
+  background-color: @dark-bg;
   padding: 1em;
   position: relative;
   margin-bottom: 10px;
@@ -23,7 +29,7 @@
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid #B3B3B3;
+    border-top: 20px solid @dark-bg;
     position: absolute;
     right: 50px;
     bottom: -20px;
@@ -36,7 +42,7 @@
 }
 
 .buttons {
-  background-color: #EBEBEB;
+  background-color: @light-bg;
   padding: 1em;
 }
 
@@ -73,7 +79,7 @@
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
     -webkit-transform: rotateY(180deg);
-    background: url(./check-mark.svg) #B3B3B3 no-repeat center / 20px;
+    background: url(./check-mark.svg) @dark-bg no-repeat center / 20px;
     display: block;
     width: 35px;
     height: 35px;
