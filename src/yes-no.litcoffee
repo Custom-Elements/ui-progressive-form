@@ -12,18 +12,28 @@ Fired when 'Yes' or 'No' are clicked.
 
 ##Attributes and Change Handlers
 
-      questionText: null
-
 The text of the question.
 
 ##Methods
 
+      toggleAnswer: (clicked, notClicked, val) ->
+        if not @$[clicked].checked
+          @answer = null
+        else
+          @answer = val
+
+        @fire 'clicked',  @answer
+
+        @$[notClicked].checked = false
+
+
 ##Event Handlers
 
-      choiceClicked: (event) ->
-        elm = event.currentTarget
-        @answer = 'true' == elm.getAttribute('value')
-        @fire 'clicked',  @answer
+      yesClicked: (event) ->
+        @toggleAnswer('yes', 'no', true)
+
+      noClicked: (event) ->
+        @toggleAnswer('no', 'yes', false)
 
 ##Polymer Lifecycle
 

@@ -7,6 +7,7 @@
     <script src="node_modules/polymer/platform.js"></script>
     <link rel="import" href="node_modules/polymer/polymer.html">
     <link rel="import" href="src/ui-progressive-form.html">
+    <link rel="import" href="src/ui-checkbox.html">
     <style>
       html, body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
@@ -16,11 +17,9 @@
       }
 
       section {
-        border-radius: 4px;
         background-color: #FDFDFF;
         padding: 2em;
         margin-bottom: 2em;
-
       }
 
       section h3 {
@@ -37,9 +36,12 @@
   <body unresolved>
     <div id="holder">
 
-      <section>
-        <h2>Inputs</h2>
+      <section >
+        <h3>Checkbox</h3>
+        <ui-checkbox style="background-color: #EBEBEB; padding: 20px;">Check this</ui-checkbox>
+      </section>
 
+      <section>
         <h3>Yes/No Question</h3>
         <yes-no id="yes-no-demo">
           <question>Are you interested in being a GLG Social Impact Fellow?</question>
@@ -71,11 +73,13 @@
         var yesNoDemo = document.getElementById('yes-no-demo');
         yesNoDemo.addEventListener("clicked", function(event){
           var yesNoAnswer = document.getElementById('yes-no-answer');
-          console.log(event);
-          if(event.target.answer)
+          yesNoAnswer.innerText = "";
+
+          if(event.target.answer == true)
             yesNoAnswer.innerText = "Yes";
-          else
+          if(event.target.answer == false)
             yesNoAnswer.innerText = "No";
+
         });
       })
     </script>

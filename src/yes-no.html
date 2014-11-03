@@ -1,3 +1,5 @@
+<link rel="import" href="ui-checkbox.html">
+
 <polymer-element name="yes-no" attributes="answer">
 <template>
   <link rel="stylesheet" type="text/css" href="./yes-no.less">
@@ -10,15 +12,11 @@
     <content select="detail"></content>
   </section>
 
-  <section class="buttons" horizontal center-justified layout center>
-    <div value="true" on-click="{{choiceClicked}}" class="checkbox-container" horizontal center-justified layout center>
-      <div class="checkbox {{ {selected: answer === true } | tokenList}}"></div>
-      <span>Yes</span>
-    </div>
-    <div on-click="{{choiceClicked}}" class="checkbox-container" horizontal center-justified layout center>
-      <div class="checkbox {{ {selected: answer === false } | tokenList}}"></div>
-      <span>No</span>
-    </div>
+  <section class="checkboxes" horizontal center-justified layout center>
+
+    <ui-checkbox id="yes" on-checked="{{yesClicked}}">Yes</ui-checkbox>
+    <ui-checkbox id="no" on-checked="{{noClicked}}">No</ui-checkbox>
+
   </section>
 
 </template>
