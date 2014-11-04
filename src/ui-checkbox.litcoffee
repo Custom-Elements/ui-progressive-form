@@ -15,4 +15,4 @@
 
       checkClicked: (event) ->
         @checked = !@checked
-        @fire 'checked',  @checked
+        @fire 'clicked',  @checked

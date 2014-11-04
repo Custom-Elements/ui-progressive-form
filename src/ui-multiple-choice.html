@@ -2,7 +2,7 @@
 <link rel="import" href="../lib/juicy-html.html">
 <link rel="import" href="ui-checkbox.html">
 
-<polymer-element name="ui-multiple-choice" attributes="choices">
+<polymer-element name="ui-multiple-choice" attributes="selected">
 <template>
   <link rel="stylesheet" type="text/css" href="./ui-multiple-choice.less">
 
@@ -11,11 +11,7 @@
   </section>
 
   <section class="answers">
-    <template repeat="{{choice in choices}}">
-      <ui-checkbox>
-        <template is="juicy-html" content="{{ choice }}"></template>
-      </ui-checkbox>
-    </template>
+    <content select="ui-checkbox"></content>
   </section>
 
 </template>

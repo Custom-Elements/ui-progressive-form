@@ -8,27 +8,30 @@
 *TODO* describe the custom event `name` and `detail` that are fired.
 
 ##Attributes and Change Handlers
-      choices: []
-      selected: []
 
 ##Methods
 
 ##Event Handlers
-
-      choiceClicked: (event) ->
-        selected.push event.target
-
 
 ##Polymer Lifecycle
 
       created: ->
 
       ready: ->
-        @choices = []
-        domChoices = @querySelectorAll('choice')
+        checkboxes = @querySelectorAll('ui-checkbox')
+        multiChoice = @
+        @selected ||= []
+        for checkbox in checkboxes
+          checkbox.addEventListener 'clicked', (event) ->
+            selected = multiChoice.selected
+            index = selected.indexOf event.target
 
-        for choice in domChoices
-          @choices.push(choice.innerHTML)
+            if index < 0
+              selected.push event.target
+            else
+              selected.splice(index, 1)
+
+            multiChoice.fire 'change', selected
 
       attached: ->
 

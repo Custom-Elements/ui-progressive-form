@@ -69,12 +69,14 @@
       <section >
         <h3>Multiple Choice</h3>
 
-        <ui-multiple-choice>
+        <ui-multiple-choice id="multi-choice">
           <question>Please indicate your interest in the top three GLG project types</question>
-          <choice>Phone Consultations</choice>
-          <choice><u>Survey</u></choice>
-          <choice>This is just text, no tooltip</choice>
+          <ui-checkbox>Phone Consultation</ui-checkbox>
+          <ui-checkbox>Survey</ui-checkbox>
+          <ui-checkbox>Meeting</ui-checkbox>
         </ui-multiple-choice>
+
+        <div class="answered">Selected: <span id="multi-choice-answer"></span></div>
 
       </section>
 
@@ -97,16 +99,29 @@
     <script>
       document.addEventListener('polymer-ready', function() {
         var yesNoDemo = document.getElementById('yes-no-demo');
-        yesNoDemo.addEventListener("clicked", function(event){
-          var yesNoAnswer = document.getElementById('yes-no-answer');
-          yesNoAnswer.innerText = "";
+        var yesNoAnswer = document.getElementById('yes-no-answer');
 
+        yesNoDemo.addEventListener("clicked", function(event){
+          yesNoAnswer.innerText = "";
           if(event.target.answer == true)
             yesNoAnswer.innerText = "Yes";
           if(event.target.answer == false)
             yesNoAnswer.innerText = "No";
-
         });
+
+        var multiChoice = document.getElementById('multi-choice');
+        var multiChoiceAnswer = document.getElementById('multi-choice-answer');
+
+        multiChoice.addEventListener("change", function(event){
+          var selectedItems = event.detail;
+          var result = [];
+
+          selectedItems.forEach(function(item){
+            result.push(item.innerText);
+          });
+          multiChoiceAnswer.innerText = result.join(', ');
+        });
+
       })
     </script>
   </body>
