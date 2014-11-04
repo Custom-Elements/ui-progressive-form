@@ -9,31 +9,29 @@
 
 ##Attributes and Change Handlers
       choices: []
+      selected: []
 
 ##Methods
 
-      boo: (data) ->
-        console.log @
-        div = document.createElement("div")
-        div.innerHTML = data
-        div.innerHTML
-
-
 ##Event Handlers
+
+      choiceClicked: (event) ->
+        selected.push event.target
+
 
 ##Polymer Lifecycle
 
       created: ->
 
       ready: ->
+        @choices = []
+        domChoices = @querySelectorAll('choice')
+
+        for choice in domChoices
+          @choices.push(choice.innerHTML)
 
       attached: ->
 
       domReady: ->
-        @choices = []
-        domChoices = @.querySelectorAll('choice')
-
-        for choice in domChoices
-          @choices.push(choice.innerHTML)
 
       detached: ->

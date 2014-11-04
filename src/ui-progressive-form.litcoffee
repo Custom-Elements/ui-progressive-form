@@ -43,14 +43,18 @@
       created: ->
 
       ready: ->
-
-      attached: ->
-
-      domReady: ->
         listItems = @.querySelectorAll('li')
+
+        return unless listItems.length
+
         for item in listItems
           @questions.push item.children[0]
 
         @.$['question-toggle-0'].appendChild @questions[@questionIndex]
+
+      attached: ->
+
+      domReady: ->
+
 
       detached: ->

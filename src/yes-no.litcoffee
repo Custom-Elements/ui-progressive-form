@@ -35,10 +35,6 @@ Fired when 'Yes' or 'No' are clicked.
       noClicked: (event) ->
         @toggleAnswer('no', 'yes', false)
 
-      answerChanged: (newVal, oldVal) ->
-
-
-
 ##Polymer Lifecycle
 
       created: ->
