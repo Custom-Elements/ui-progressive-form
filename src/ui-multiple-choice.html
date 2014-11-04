@@ -1,0 +1,23 @@
+
+<link rel="import" href="juicy-html.html">
+<link rel="import" href="ui-checkbox.html">
+
+<polymer-element name="ui-multiple-choice" attributes="choices">
+<template>
+  <link rel="stylesheet" type="text/css" href="./ui-multiple-choice.less">
+
+  <section class="question">
+    <content select="question"></content>
+  </section>
+
+  <section class="answers">
+    <template repeat="{{choice in choices}}">
+      <ui-checkbox>
+        <template is="juicy-html" content="{{ choice }}"></template>
+      </ui-checkbox>
+    </template>
+  </section>
+
+</template>
+<script src="./ui-multiple-choice.litcoffee"></script>
+</polymer-element>

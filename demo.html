@@ -8,6 +8,7 @@
     <link rel="import" href="node_modules/polymer/polymer.html">
     <link rel="import" href="src/ui-progressive-form.html">
     <link rel="import" href="src/ui-checkbox.html">
+    <link rel="import" href="src/ui-multiple-choice.html">
     <style>
       html, body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
@@ -31,6 +32,11 @@
         margin-right: auto;
         width: 960px;
       }
+
+      .answered {
+        margin-top: 2em;
+        font-size: 1.5em;
+      }
     </style>
   </head>
   <body unresolved>
@@ -38,18 +44,44 @@
 
       <section >
         <h3>Checkbox</h3>
-        <ui-checkbox style="background-color: #EBEBEB; padding: 20px;">Check this</ui-checkbox>
+          <ui-checkbox style="background-color: #EBEBEB; padding: 20px;">Check this</ui-checkbox>
       </section>
 
       <section>
         <h3>Yes/No Question</h3>
+
         <yes-no id="yes-no-demo">
-          <question>Are you interested in being a GLG Social Impact Fellow?</question>
+          <question>Do you have an assistant that you would like GLG to use as an additional point of contact for you?</question>
+        </yes-no>
+        <div class="answered">Answer: <span id="yes-no-answer"></span></div>
+      </section>
+
+      <section>
+        <h3>Yes/No Question with details</h3>
+        <yes-no>
+          <question>Are you <u>interested</u> in being a GLG Social Impact Fellow?</question>
           <detail>
             The Fellows are young leaders of innovative nonprofits and social enterprises selected to receive pro bono access to the GLG Councils for a one year period. You can learn more at: <a href="http://www.GLGsocialimpact.com">www.GLGSocialImpact.com</a>
           </detail>
         </yes-no>
-        <div>Answered: <span id="yes-no-answer"></span></div>
+      </section>
+
+      <section >
+        <h3>Multiple Choice</h3>
+
+        <ui-multiple-choice>
+          <question>Please indicate your interest in the top three GLG project types</question>
+          <choice>
+            Phone Consultations
+          </choice>
+          <choice>
+            Survey
+          </choice>
+          <choice>
+            This is just text, no tooltip
+          </choice>
+        </ui-multiple-choice>
+
       </section>
 
       <section>

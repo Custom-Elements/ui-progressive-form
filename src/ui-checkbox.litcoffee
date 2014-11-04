@@ -16,15 +16,3 @@
       checkClicked: (event) ->
         @checked = !@checked
         @fire 'checked',  @checked
-
-##Polymer Lifecycle
-
-      created: ->
-
-      ready: ->
-
-      attached: ->
-
-      domReady: ->
-
-      detached: ->

@@ -1,7 +1,8 @@
 <polymer-element name="ui-checkbox" attributes="checked">
 <template>
   <link rel="stylesheet" type="text/css" href="./ui-checkbox.less">
-  <div class="checkbox-container" on-click="{{checkClicked}}"  horizontal center-justified layout center>
+
+  <div class="checkbox-container" on-click="{{checkClicked}}" horizontal center layout>
     <div class="checkbox {{ {checked: checked === true } | tokenList}}"></div>
     <span><content></content></span>
   </div>

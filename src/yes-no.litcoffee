@@ -12,12 +12,12 @@ Fired when 'Yes' or 'No' are clicked.
 
 ##Attributes and Change Handlers
 
-The text of the question.
-
 ##Methods
 
       toggleAnswer: (clicked, notClicked, val) ->
         if not @$[clicked].checked
+          #When an answer is unchecked, the answer has been unspecified.
+          #It's not yes or no, it's nothing.
           @answer = null
         else
           @answer = val
@@ -34,6 +34,10 @@ The text of the question.
 
       noClicked: (event) ->
         @toggleAnswer('no', 'yes', false)
+
+      answerChanged: (newVal, oldVal) ->
+
+
 
 ##Polymer Lifecycle
 
