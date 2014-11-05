@@ -2,7 +2,7 @@
 *TODO* tell me all about your element.
 
 
-    Polymer 'yes-no',
+    Polymer 'ui-yes-no',
 
 ##Events
 

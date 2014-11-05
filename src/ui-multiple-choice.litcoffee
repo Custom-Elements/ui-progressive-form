@@ -20,18 +20,27 @@
       ready: ->
         checkboxes = @querySelectorAll('ui-checkbox')
         multiChoice = @
-        @selected ||= []
+        @selected = []
+
         for checkbox in checkboxes
-          checkbox.addEventListener 'clicked', (event) ->
+
+          checkbox.addEventListener('clicked', (event) ->
             selected = multiChoice.selected
-            index = selected.indexOf event.target
+            index = selected.indexOf(event.target)
 
             if index < 0
-              selected.push event.target
+              selected.push(event.target)
             else
               selected.splice(index, 1)
 
-            multiChoice.fire 'change', selected
+            console.log(multiChoice)  
+
+            if not (multiChoice['multi-select']?.length >= 0) 
+              for box in checkboxes
+                box.checked = false unless box is event.target
+
+            multiChoice.fire('change', selected)
+          )
 
       attached: ->
 

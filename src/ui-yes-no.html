@@ -1,0 +1,16 @@
+<link rel="import" href="ui-checkbox.html">
+
+<polymer-element name="ui-yes-no" attributes="answer">
+<template>
+  <link rel="stylesheet" type="text/css" href="./ui-yes-no.less">
+
+  <section horizontal center-justified layout center>
+
+    <ui-checkbox id="yes" on-clicked="{{yesClicked}}">Yes</ui-checkbox>
+    <ui-checkbox id="no" on-clicked="{{noClicked}}">No</ui-checkbox>
+
+  </section>
+
+</template>
+<script src="./ui-yes-no.litcoffee"></script>
+</polymer-element>

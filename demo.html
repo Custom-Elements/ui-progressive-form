@@ -11,6 +11,7 @@
     <link rel="import" href="src/ui-multiple-choice.html">
     <link rel="import" href="src/ui-question-bubble.html">
     <link rel="import" href="src/ui-question.html">
+    <link rel="import" href="src/ui-yes-no.html">
     <style>
       html, body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
@@ -51,6 +52,14 @@
             The Fellows are young leaders of innovative nonprofits and social enterprises selected to receive pro bono access to the GLG Councils for a one year period. You can learn more at: <a href="http://www.GLGsocialimpact.com">www.GLGSocialImpact.com</a>
             </detail>
             
+            <!-- <ui-yes-no></ui-yes-no> -->
+
+            <ui-multiple-choice id="multi-choice" >
+              <ui-checkbox>Phone Consultation</ui-checkbox>
+              <ui-checkbox>Survey</ui-checkbox>
+              <ui-checkbox>Meeting</ui-checkbox>
+            </ui-multiple-choice>
+
           </ui-question>
       </section>
 
@@ -73,7 +82,7 @@
         <yes-no id="yes-no-demo">
           <question>Do you have an assistant that you would like GLG to use as an additional point of contact for you?</question>
         </yes-no>
-        <div class="answered">Answer: <span id="yes-no-answer"></span></div>
+        <div class="answered">Answer: <span id="ui-yes-no-answer"></span></div>
       </section>
 
       <section>
