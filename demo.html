@@ -10,6 +10,7 @@
     <link rel="import" href="src/ui-checkbox.html">
     <link rel="import" href="src/ui-multiple-choice.html">
     <link rel="import" href="src/ui-question-bubble.html">
+    <link rel="import" href="src/ui-question.html">
     <style>
       html, body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
@@ -42,7 +43,18 @@
   </head>
   <body unresolved>
     <div id="holder">
-      
+      <section >
+          <h3>Question Template</h3>
+          <ui-question>
+            <question>Are you <u>interested</u> in being a GLG Social Impact Fellow?</question>
+            <detail>
+            The Fellows are young leaders of innovative nonprofits and social enterprises selected to receive pro bono access to the GLG Councils for a one year period. You can learn more at: <a href="http://www.GLGsocialimpact.com">www.GLGSocialImpact.com</a>
+            </detail>
+            
+          </ui-question>
+      </section>
+
+
       <section >
           <h3>Question Bubble</h3>
           <ui-question-bubble>
