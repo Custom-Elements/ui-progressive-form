@@ -36,6 +36,12 @@
         width: 960px;
       }
 
+      .input-box {
+        background-color: #EBEBEB;
+        padding: 2em;
+        line-height: 2;
+      }
+
       .answered {
         margin-top: 2em;
         font-size: 1.5em;
@@ -44,7 +50,70 @@
   </head>
   <body unresolved>
     <div id="holder">
-      <section >
+
+      <section>
+        <h3>Multiple Choice - Single Selection</h3>
+        <div class="input-box">
+          <ui-multiple-choice id="multi-choice-single">
+            <ui-checkbox>Phone Consultation</ui-checkbox>
+            <ui-checkbox>Survey</ui-checkbox>
+            <ui-checkbox>Meeting</ui-checkbox>
+          </ui-multiple-choice>
+        </div>
+
+        <div class="answered">Selected: <span id="multi-single-answer"></span></div>
+
+        <script>
+          document.addEventListener('polymer-ready', function() {
+            var multiChoice = document.getElementById('multi-choice-single');
+            var multiChoiceAnswer = document.getElementById('multi-single-answer');
+
+            multiChoice.addEventListener("change", function(event){
+              var selectedItems = event.detail;
+              var result = [];
+
+              selectedItems.forEach(function(item){
+                result.push(item.innerText);
+              });
+              multiChoiceAnswer.innerText = result.join(', ');
+            });
+          })
+        </script>
+
+      </section>
+
+      <section>
+        <h3>Multiple Choice - Multiple Selection</h3>
+        <div class="input-box">
+          <ui-multiple-choice id="multi-choice" multiselect>
+            <ui-checkbox>Phone Consultation</ui-checkbox>
+            <ui-checkbox>Survey</ui-checkbox>
+            <ui-checkbox>Meeting</ui-checkbox>
+          </ui-multiple-choice>
+        </div>
+
+        <div class="answered">Selected: <span id="multi-choice-answer"></span></div>
+
+        <script>
+          document.addEventListener('polymer-ready', function() {
+            var multiChoice = document.getElementById('multi-choice');
+            var multiChoiceAnswer = document.getElementById('multi-choice-answer');
+
+            multiChoice.addEventListener("change", function(event){
+              var selectedItems = event.detail;
+              var result = [];
+
+              selectedItems.forEach(function(item){
+                result.push(item.innerText);
+              });
+              multiChoiceAnswer.innerText = result.join(', ');
+            });
+          })
+        </script>
+
+      </section>
+
+      <section>
           <h3>Question Template</h3>
           <ui-question>
             <question>Are you <u>interested</u> in being a GLG Social Impact Fellow?</question>
@@ -52,13 +121,7 @@
             The Fellows are young leaders of innovative nonprofits and social enterprises selected to receive pro bono access to the GLG Councils for a one year period. You can learn more at: <a href="http://www.GLGsocialimpact.com">www.GLGSocialImpact.com</a>
             </detail>
             
-            <!-- <ui-yes-no></ui-yes-no> -->
-
-            <ui-multiple-choice id="multi-choice" >
-              <ui-checkbox>Phone Consultation</ui-checkbox>
-              <ui-checkbox>Survey</ui-checkbox>
-              <ui-checkbox>Meeting</ui-checkbox>
-            </ui-multiple-choice>
+            <h2>Put your question inputs here! (yes/no, multiple choice, etc)</h2>
 
           </ui-question>
       </section>

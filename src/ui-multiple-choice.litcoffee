@@ -9,6 +9,8 @@
 
 ##Attributes and Change Handlers
 
+      selectedItems: null
+
 ##Methods
 
 ##Event Handlers
@@ -16,31 +18,38 @@
 ##Polymer Lifecycle
 
       created: ->
+        @selectedItems = []
 
       ready: ->
         checkboxes = @querySelectorAll('ui-checkbox')
         multiChoice = @
-        @selected = []
+        selectedItems = @selectedItems
+
+        itemSelected = (event) ->
+          selectedBox = event.target
+
+          #If it's in multi-select mode, select/deselect amongst the entries
+          if multiChoice.multiselect?
+            index = selectedItems.indexOf(selectedBox)
+            if index < 0
+              selectedItems.push(selectedBox)
+            else
+              selectedItems.splice(index, 1)
+          else
+            #Single selection, uncheck other selections, only select one box
+
+            if selectedItems.pop() is selectedBox
+              selectedBox.checked = false
+            else
+              selectedItems.push(selectedBox)
+              for box in checkboxes
+                box.checked = box is selectedBox
+
+          #Let clients know the selected items changed
+          multiChoice.fire('change', selectedItems)
 
         for checkbox in checkboxes
-
-          checkbox.addEventListener('clicked', (event) ->
-            selected = multiChoice.selected
-            index = selected.indexOf(event.target)
-
-            if index < 0
-              selected.push(event.target)
-            else
-              selected.splice(index, 1)
-
-            console.log(multiChoice)  
-
-            if not (multiChoice['multi-select']?.length >= 0) 
-              for box in checkboxes
-                box.checked = false unless box is event.target
-
-            multiChoice.fire('change', selected)
-          )
+          checkbox.addEventListener('clicked', itemSelected)
 
       attached: ->
 
