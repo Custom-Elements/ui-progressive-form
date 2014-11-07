@@ -11,6 +11,7 @@
     <link rel="import" href="src/ui-multiple-choice.html">
     <link rel="import" href="src/ui-question.html">
     <link rel="import" href="src/ui-yes-no.html">
+    <link rel="import" href="src/ui-slider.html">
     <style>
       html, body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
@@ -50,9 +51,20 @@
   <body unresolved>
     <div id="holder">
 
-      <section >
+      <section>
         <h3>Checkbox</h3>
         <ui-checkbox class="input-box">Check this</ui-checkbox>
+      </section>
+
+      <section >
+        <h3>Slider Input</h3>
+        <ui-slider class="input-box">Slide this
+           <slide-marker>Not Experienced</slide-marker>
+           <slide-marker>Some Experience</slide-marker>
+           <slide-marker>Experienced</slide-marker>
+           <slide-marker>Expert</slide-marker>
+           <slide-marker>Shaolin Monk</slide-marker>
+        </ui-slider>
       </section>
 
       <section>
