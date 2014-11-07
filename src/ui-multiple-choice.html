@@ -1,6 +1,10 @@
 <polymer-element name="ui-multiple-choice" attributes="multiselect">
 <template>
-  <link rel="stylesheet" type="text/css" href="./ui-multiple-choice.less">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
 
   <section class="answers">
     <content select="ui-checkbox"></content>

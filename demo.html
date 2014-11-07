@@ -37,7 +37,7 @@
 
       .input-box {
         background-color: #EBEBEB;
-        padding: 2em;
+        padding: 1em;
         line-height: 2;
       }
 
@@ -50,21 +50,45 @@
   <body unresolved>
     <div id="holder">
 
+      <section >
+        <h3>Checkbox</h3>
+        <ui-checkbox class="input-box">Check this</ui-checkbox>
+      </section>
+
+      <section>
+        <h3>Yes/No Input</h3>
+        <ui-yes-no id="yes-no-demo" class="input-box"></ui-yes-no>
+        <div class="answered">Answer: <span id="yes-no-answer"></span></div>
+
+        <script>
+          document.addEventListener('polymer-ready', function() {
+            var yesNoDemo = document.getElementById('yes-no-demo');
+            var yesNoAnswer = document.getElementById('yes-no-answer');
+
+            yesNoDemo.addEventListener("clicked", function(event){
+              yesNoAnswer.innerText = "";
+              if(event.target.answer == true)
+                yesNoAnswer.innerText = "Yes";
+              if(event.target.answer == false)
+                yesNoAnswer.innerText = "No";
+            });
+          })
+        </script>
+
+      </section>
+
       <section>
         <h3>Multiple Choice</h3>
-        <label><input id="multi-select-check" type="checkbox"/>Enable Multi-select<label/> 
-        <div class="input-box">
-          <ui-multiple-choice id="multi-choice-single">
-            <ui-checkbox>Phone Consultation</ui-checkbox>
-            <ui-checkbox>Survey</ui-checkbox>
-            <ui-checkbox>Meeting</ui-checkbox>
-          </ui-multiple-choice>
-        </div>
+        <label><input id="multi-select-check" type="checkbox" />Enable Multi-select</label>
+        <ui-multiple-choice id="multi-choice-single" class="input-box">
+          <ui-checkbox>Phone Consultation</ui-checkbox>
+          <ui-checkbox>Survey</ui-checkbox>
+          <ui-checkbox>Meeting</ui-checkbox>
+        </ui-multiple-choice>
 
         <div class="answered">Selected: <span id="multi-single-answer"></span></div>
 
         <script>
-
 
           document.addEventListener('polymer-ready', function() {
             var multiChoice = document.getElementById('multi-choice-single');
@@ -95,8 +119,6 @@
 
       </section>
 
-     
-
       <section>
           <h3>Question Template</h3>
           <ui-question>
@@ -108,39 +130,6 @@
             <h2>Put your question inputs here! (yes/no, multiple choice, etc)</h2>
 
           </ui-question>
-      </section>
-
-      <section>
-        <h3>Yes/No Question</h3>
-
-        <yes-no id="yes-no-demo">
-          <question>Do you have an assistant that you would like GLG to use as an additional point of contact for you?</question>
-        </yes-no>
-        <div class="answered">Answer: <span id="ui-yes-no-answer"></span></div>
-      </section>
-
-      <section>
-        <h3>Yes/No Question with details</h3>
-        <yes-no>
-          <question>Are you <u>interested</u> in being a GLG Social Impact Fellow?</question>
-          <detail>
-            The Fellows are young leaders of innovative nonprofits and social enterprises selected to receive pro bono access to the GLG Councils for a one year period. You can learn more at: <a href="http://www.GLGsocialimpact.com">www.GLGSocialImpact.com</a>
-          </detail>
-        </yes-no>
-      </section>
-
-      <section >
-        <h3>Multiple Choice</h3>
-
-        <ui-multiple-choice id="multi-choice">
-          <question>Please indicate your interest in the top three GLG project types</question>
-          <ui-checkbox>Phone Consultation</ui-checkbox>
-          <ui-checkbox>Survey</ui-checkbox>
-          <ui-checkbox>Meeting</ui-checkbox>
-        </ui-multiple-choice>
-
-        <div class="answered">Selected: <span id="multi-choice-answer"></span></div>
-
       </section>
 
       <section>
@@ -159,33 +148,6 @@
       </section>
 
     </div>
-    <script>
-      document.addEventListener('polymer-ready', function() {
-        var yesNoDemo = document.getElementById('yes-no-demo');
-        var yesNoAnswer = document.getElementById('yes-no-answer');
 
-        yesNoDemo.addEventListener("clicked", function(event){
-          yesNoAnswer.innerText = "";
-          if(event.target.answer == true)
-            yesNoAnswer.innerText = "Yes";
-          if(event.target.answer == false)
-            yesNoAnswer.innerText = "No";
-        });
-
-        var multiChoice = document.getElementById('multi-choice');
-        var multiChoiceAnswer = document.getElementById('multi-choice-answer');
-
-        multiChoice.addEventListener("change", function(event){
-          var selectedItems = event.detail;
-          var result = [];
-
-          selectedItems.forEach(function(item){
-            result.push(item.innerText);
-          });
-          multiChoiceAnswer.innerText = result.join(', ');
-        });
-
-      })
-    </script>
   </body>
 </html>
